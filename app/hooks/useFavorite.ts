@@ -16,12 +16,16 @@ const useFavorite = ({ listingId, currentUser }: IUseFavorite) => {
   const router = useRouter();
   const loginModal = useLoginModal();
 
+
+  // Checking if a Listing is Favorited
   const hasFavorited = useMemo(() => {
     const list = currentUser?.favoriteIds || [];
 
     return list.includes(listingId);
   }, [currentUser, listingId]);
 
+
+  //  Toggle Favorite Status 
   const toggleFavorite = useCallback(
     async (e: React.MouseEvent<HTMLDivElement>) => {
       e.stopPropagation();
@@ -41,6 +45,7 @@ const useFavorite = ({ listingId, currentUser }: IUseFavorite) => {
         await request();
         router.refresh();
         toast.success("Success");
+        /* eslint-disable @typescript-eslint/no-unused-vars */
       } catch (error) {
         toast.error("Something went wrong.");
       }
@@ -53,3 +58,5 @@ const useFavorite = ({ listingId, currentUser }: IUseFavorite) => {
     toggleFavorite,
   };
 };
+
+export default useFavorite;
