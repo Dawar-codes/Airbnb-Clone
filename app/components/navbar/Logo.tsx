@@ -12,7 +12,7 @@ const Logo = () => {
       className="hidden md:block cursor-pointer w-auto h-auto"
       width={100}
       height={50}
-      src="/images/airbnb.png"
+      src="/images/airbnby.png"
       priority
     />
   );
