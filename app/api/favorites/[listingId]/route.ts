@@ -7,7 +7,7 @@ import prisma from "@/app/libs/prismadb";
 // Add function
 export async function POST(
     request: Request, 
-    context: { params: { listingId: string } }
+    context: { params: { listingId?: string } }
 ) {
   const currentUser = await getCurrentUser();
 
@@ -40,7 +40,7 @@ export async function POST(
 // Delete function
 export async function DELETE(
   request: Request,
-  context: { params: { listingId: string } }
+  context: { params: { listingId?: string } }
 ) {
   const currentUser = await getCurrentUser();
 
