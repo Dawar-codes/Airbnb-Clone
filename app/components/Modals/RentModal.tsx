@@ -75,6 +75,7 @@ const RentModal = () => {
     [location]
   );
 
+    /* eslint-disable @typescript-eslint/no-explicit-any */
   const setCustomValue = (id: string, value: any) => {
     setValue(id, value, {
       shouldValidate: true,

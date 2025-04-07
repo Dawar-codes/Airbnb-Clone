@@ -6,6 +6,7 @@ import { useCallback } from "react";
 import { TbPhotoPlus } from "react-icons/tb";
 
 /* eslint-disable no-var */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 declare global {
   var cloudinary: any;
 }
@@ -16,6 +17,7 @@ interface ImagUploadProps {
 }
 
 const ImageUpload: React.FC<ImagUploadProps> = ({ onChange, value }) => {
+  /* eslint-disable @typescript-eslint/no-explicit-any */
   const handleUpload = useCallback((result: any) => {
     /* When a user uploads an image, Cloudinary returns an object called result.
         result.info.secure_url contains the URL of the uploaded image */
