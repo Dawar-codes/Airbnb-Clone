@@ -7,7 +7,7 @@ import prisma from "@/app/libs/prismadb";
 // Add function
 export async function POST(
     request: Request, 
-    { params }: { params: Record<string, string> }
+    context: { params: { listingId: string } }
 ) {
   const currentUser = await getCurrentUser();
 
@@ -15,7 +15,7 @@ export async function POST(
     return NextResponse.error();
   }
 
-  const listingId = params?.listingId;
+  const { listingId } = context.params;
 
   if (!listingId || typeof listingId !== "string") {
     throw new Error("Invalid ID");
@@ -40,7 +40,7 @@ export async function POST(
 // Delete function
 export async function DELETE(
   request: Request,
-  { params }: { params: Record<string, string> }
+  context: { params: { listingId: string } }
 ) {
   const currentUser = await getCurrentUser();
 
@@ -48,7 +48,7 @@ export async function DELETE(
     return NextResponse.error();
   }
 
-  const listingId = params?.listingId;
+  const { listingId } = context.params;
 
   if (!listingId || typeof listingId !== "string") {
     throw new Error("Invalid ID");
