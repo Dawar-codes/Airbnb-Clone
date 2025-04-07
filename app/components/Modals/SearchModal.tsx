@@ -164,6 +164,18 @@ const SearchModal = () => {
           value={guestCount}
           onChange={(value) => setGuestCount(value)}
         />
+        <Counter
+          title="Rooms"
+          subtitle="How many rooms do you need?"
+          value={roomCount}
+          onChange={(value) => setRoomCount(value)}
+        />
+        <Counter
+          title="Bathrooms"
+          subtitle="How many bathrooms do you need?"
+          value={bathroomCount}
+          onChange={(value) => setBathroomCount(value)}
+        />
       </div>
     );
   }
