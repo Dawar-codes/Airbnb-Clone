@@ -11,9 +11,9 @@ const Logo = () => {
       <Image
         onClick={() => router.push("/")}
         alt="Mobile Logo"
-        className="block md:hidden cursor-pointer w-auto h-auto"
-        width={35}
-        height={35}
+        className="block md:hidden cursor-pointer w-auto h-auto my-auto"
+        width={30}
+        height={30}
         src="/images/airbnbyNoText.png" // your mobile logo here
         priority
       />
