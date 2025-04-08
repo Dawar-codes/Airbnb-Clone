@@ -4,12 +4,15 @@ import Container from "./components/Container";
 import EmptyState from "./components/EmptyState";
 import ListingCard from "./components/listings/LisitingCard";
 
+type IParams = Promise<IListingParams>;
+
 interface HomeProps {
-  searchParams: IListingParams;
+  searchParams: IParams;
 }
 
 const Home = async ({ searchParams }: HomeProps) => {
-  const listings = await getListing(searchParams);
+  const params = await searchParams;
+  const listings = await getListing(params);
   const currentUser = await getCurrentUser();
 
   if (listings.length === 0) {

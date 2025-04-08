@@ -3,23 +3,18 @@ import { NextResponse } from "next/server";
 import getCurrentUser from "@/app/actions/getCurrentUser";
 import prisma from "@/app/libs/prismadb";
 
-interface IParams {
-  listingId?: string;
-}
-
+// Definining async params type (as per Next.js 15)
+type Params = Promise<{ listingId?: string }>;
 
 // Add function
-export async function POST(
-    request: Request, 
-    { params }: { params: IParams }
-) {
+export async function POST(request: Request, { params }: { params: Params }) {
   const currentUser = await getCurrentUser();
 
   if (!currentUser) {
     return NextResponse.error();
   }
 
-  const { listingId } = params;
+  const { listingId } = await params;
 
   if (!listingId || typeof listingId !== "string") {
     throw new Error("Invalid ID");
@@ -42,17 +37,14 @@ export async function POST(
 }
 
 // Delete function
-export async function DELETE(
-  request: Request,
-  { params }: { params: IParams }
-) {
+export async function DELETE(request: Request, { params }: { params: Params }) {
   const currentUser = await getCurrentUser();
 
   if (!currentUser) {
     return NextResponse.error();
   }
 
-  const { listingId } = params;
+  const { listingId } = await params;
 
   if (!listingId || typeof listingId !== "string") {
     throw new Error("Invalid ID");

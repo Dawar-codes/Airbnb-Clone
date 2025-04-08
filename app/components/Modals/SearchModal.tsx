@@ -16,6 +16,7 @@ import Counter from "../inputs/Counter";
 
 import useSearchModal from "@/app/hooks/UseSearchModal";
 
+
 enum STEPS {
   LOCATION = 0,
   DATE = 1,

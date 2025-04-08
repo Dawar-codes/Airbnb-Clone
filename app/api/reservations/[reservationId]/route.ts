@@ -3,13 +3,12 @@ import { NextResponse } from "next/server";
 import prisma from "@/app/libs/prismadb";
 import getCurrentUser from "@/app/actions/getCurrentUser";
 
-interface Iparams {
-  reservationId?: string;
-}
+// Definining async params type (as per Next.js 15)
+type Params = Promise<{ reservationId?: string }>;
 
 export async function DELETE(
   request: Request,
-  { params }: { params: Iparams }
+  { params }: { params: Params }
 ) {
   const currentUser = await getCurrentUser();
 
